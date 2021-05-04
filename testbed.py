@@ -1,4 +1,4 @@
-#! usr/bin/env python3
+#! usr/bin/env python
 try:
     import RPI.GPIO as GPIO
 
@@ -6,7 +6,7 @@ except ImportError:
     print('\nusing simulated GPIO \n')
     from sim_RPI import *
 # from gpiozero import Motor
-
+import time
 
 p = GPIO.PWM(1, 1000)
 
@@ -39,10 +39,17 @@ class Testbed():
         pass
 
     def raise_cone(self):
-        pass
+
+        while not GPIO.input(self.contact_pin):
+            pass
+            # power motor
 
     def lower_cone(self):
-        pass
+        time_delta = 0
+        past_time = time.perf_counter()
+        while time_delta < 0.1:
+            current_time = time.perf_counter()
+            time_delta = current_time - past_time
 
     def reel_in_spool(self):
         pass
