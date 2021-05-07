@@ -42,7 +42,7 @@ class GPIO():
             pass
 
         def start(self, pwm_value):
-            print(f'pwm value is: {pwm_value}')
+            print('pwm value is: {0}'.format(pwm_value))
 
         def ChangeDutyCycle(self, pwm_value):
-            print(f'new pwm value is: {pwm_value}')
+            print('new pwm value is: {0}'.format(pwm_value))
